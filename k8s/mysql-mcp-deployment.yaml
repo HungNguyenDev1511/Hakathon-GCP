@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-mcp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql-mcp
+  template:
+    metadata:
+      labels:
+        app: mysql-mcp
+    spec:
+      containers:
+      - name: mysql-mcp
+        image: your-dockerhub-user/mysql-mcp:latest
+        env:
+          - name: MYSQL_HOST
+            value: "mysql-service"
+          - name: MYSQL_USER
+            value: "root"
+          - name: MYSQL_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: password
+          - name: MYSQL_DB
+            value: "ecommerce"
