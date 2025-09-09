@@ -49,7 +49,8 @@ gcloud run deploy mcp-server \
 ```
 gcloud run services proxy mcp-server --region=us-central1
 ```
-Ta sẽ thấy 1 thông báo dạng:``
+Ta sẽ thấy 1 thông báo dạng:
+
 ```
 Proxying to Cloud Run service [mcp-server] in project [<YOUR_PROJECT_ID>] region [us-central1]
 http://127.0.0.1:8080 proxies to https://mcp-server-abcdefgh-uc.a.run.app
