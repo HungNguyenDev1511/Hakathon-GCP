@@ -43,6 +43,12 @@ def query_mysql(sql: str) -> str:
     return str(rows[:10]) if rows else "No results."
 
 if __name__ == "__main__":
-    port = int(os.getenv("PORT", 8080))
-    logger.info(f"🚀 MCP server started on port {port}")
-    mcp.run(host="0.0.0.0", port=port)
+    logger.info(f" MCP server started on port {os.getenv('PORT', 8080)}")
+    # Could also use 'sse' transport, host="0.0.0.0" required for Cloud Run.
+    asyncio.run(
+        mcp.run_async(
+            transport="streamable-http", 
+            host="0.0.0.0", 
+            port=os.getenv("PORT", 8080),
+        )
+    )
