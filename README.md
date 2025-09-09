@@ -46,9 +46,12 @@ gcloud run deploy mcp-server \
 ```
 
 - Vì mình dùng cái cờ --no-allow-unauthenticated nên mình phải chạy proxy:
+
 ```
 gcloud run services proxy mcp-server --region=us-central1
 ```
+
+
 Ta sẽ thấy 1 thông báo dạng:
 
 ```
