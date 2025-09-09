@@ -34,7 +34,7 @@ gcloud artifacts repositories create remote-mcp-servers \
   --location=us-central1 \
   --description="Repository for remote MCP servers" \
   --project=$PROJECT_ID
-``
+```
 
 - Sau đó build image và push lên cloud build
 
