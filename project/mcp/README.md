@@ -12,6 +12,7 @@ Triển khai sơ bộ phần server :
 │   ├── pyproject.toml
 │   ├── server.py
 │   └── Dockerfile
+```
 
 - File server.py dùng để định nghĩa API @tool.mcp để query thông tin database.
 - Dockerfile dùng để build cấu hình deploy MCP server lên GKE
