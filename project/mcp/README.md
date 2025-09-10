@@ -7,6 +7,7 @@ Case ý tưởng tại project: Database chứa thông tin của các mặt hàn
 Ví dụ: Promt đầu vào là: Hãy cho tôi biết mặt hàng nào bán chạy ngày hôm nay, LLM Agent sẽ query dữ liệu dưới database lấy ra mặt hàng bán chạy. 
 Triển khai sơ bộ phần server : 
 
+```plaintext
 ├── server
 │   ├── pyproject.toml
 │   ├── server.py
