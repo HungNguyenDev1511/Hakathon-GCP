@@ -72,6 +72,33 @@ Sau đó vào trong POD để create table (data model) để chứa thông tin 
 kubectl -n mcp exec -it mysql-mcp-deployment -- bash
 ```
 
+Khi vào trong Pod rồi thì gõ 
+
+```
+mysql -u root -p
+```
+
+Nó hỏi password thì nó nằm trong cái mysql-secret.yaml
+Giờ thì mình tạo bảng và seeding ít dữ liệu 
+```
+CREATE DATABASE mcpdb;
+USE mcpdb;
+
+CREATE TABLE customers (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(200) NOT NULL,
+  email VARCHAR(200) NOT NULL,
+  signup_date DATE,
+  balance DECIMAL(12,2)
+);
+
+INSERT INTO customers (name, email, signup_date, balance) VALUES
+('Alice Nguyen', 'alice@example.com', '2024-01-05', 120.50),
+('Bob Tran', 'bob@example.com', '2024-03-10', 2500.00),
+('Charlie Ho', 'charlie@example.com', '2024-07-01', 15.75);
+```
+
+
 
 
 
