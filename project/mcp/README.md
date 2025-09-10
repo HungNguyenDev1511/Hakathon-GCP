@@ -6,6 +6,7 @@ Idea: Ý tưởng là sử dụng MCP server như một API Backend cho LLM Agen
 Case ý tưởng tại project: Database chứa thông tin của các mặt hàng (thông tin mặt hàng này được lưu từ một hệ thống E-commerce) , LLM-Agent có thể dựa theo prompt đầu vào của user để query xuống database
 Ví dụ: Promt đầu vào là: Hãy cho tôi biết mặt hàng nào bán chạy ngày hôm nay, LLM Agent sẽ query dữ liệu dưới database lấy ra mặt hàng bán chạy. 
 Triển khai sơ bộ phần server : 
+
 ├── server
 │   ├── pyproject.toml
 │   ├── server.py
@@ -56,6 +57,19 @@ Ta sẽ thấy 1 thông báo dạng:
 ```
 Proxying to Cloud Run service [mcp-server] in project [<YOUR_PROJECT_ID>] region [us-central1]
 http://127.0.0.1:8080 proxies to https://mcp-server-abcdefgh-uc.a.run.app
+```
+
+Giờ thì mình cần phải có database để chứa dữ liệu dùng cho việc query:
+Trước tiên nhớ cài k8s nhé, cài k8s CLI hay gì đó để nối vào GKE
+
+```
+k apply -f mysql-mcp-deployment.yaml 
+```
+
+Sau đó vào trong POD để create table (data model) để chứa thông tin của data
+
+```
+kubectl -n mcp exec -it mysql-mcp-deployment -- bash
 ```
 
 
