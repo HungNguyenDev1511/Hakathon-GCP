@@ -1,7 +1,9 @@
 import os
 import logging
 import mysql.connector
-from fastmcp import FastMCP, tool
+from fastmcp import FastMCP
+from fastmcp.tools import tool
+import asyncio
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(format="[%(levelname)s]: %(message)s", level=logging.INFO)

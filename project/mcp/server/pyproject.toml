@@ -3,4 +3,9 @@ name = "mcp-on-cloudrun"
 version = "0.1.0"
 description = "Example of deploying a MCP server on Cloud Run"
 requires-python = ">=3.10"
-dependencies = []
+dependencies = [
+    "mysql-connector-python",
+    "fastmcp",
+    "uvicorn",
+    "fastapi"
+]
